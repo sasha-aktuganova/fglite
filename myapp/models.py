@@ -13,7 +13,7 @@ class Store(models.Model):
 		return self.store_name
 
 class Menu(models.Model):
-	store_id = models.ForeignKey(Store)
+	store_id = models.ForeignKey(Store.user_id)
 	menu_type = models.CharField(max_length=30)
 
 	def __str__(self):
