@@ -37,5 +37,17 @@ def store_edit(request, pk):
         form = StoreForm(instance=store)
     return render(request, 'shared/store_edit.html', {'form': form})
 
+def menu_new(request):
+    if request.method == "POST":
+        form = MenuForm(request.POST)
+        if form.is_valid():
+            menu = form.save(commit=False)
+            menu.user_id = request.user
+            menu.save()
+            return redirect('menu_detail', pk=menu.pk)
+    else:
+        form = MenuForm()
+    return render(request, 'menus/menu_edit.html', {'form': form})
+
 
 
