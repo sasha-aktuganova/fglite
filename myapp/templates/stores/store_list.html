@@ -8,12 +8,17 @@
         <link rel="stylesheet" href="{% static 'css/fglite.css' %}">
     </head>
     <body>
-        <div class="page-header">
-            <h1><a href="">FGLite</a></h1>
-        </div>
+	    <nav class="navbar navbar-default">
+	      	<div class="container">
+	    		<div class="">
+	            	<h1><a href="/">FGLite</a></h1>
+	        	</div>
+	    	</div>
+		</nav>
 
+		<div class="container">
 		{% for store in stores %}
-		    <div>
+		    <div class="store-block">
 		        <h1><a href="">{{ store.store_name }}</a></h1>
 		        <ul class="store-details">
 		        	<li>{{ store.store_type|linebreaksbr }}</li>
@@ -23,5 +28,6 @@
 		        </ul>
 		    </div>
 		{% endfor %}
+		</div>
     </body>
 </html>
