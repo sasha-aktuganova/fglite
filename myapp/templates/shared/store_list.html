@@ -2,12 +2,15 @@
 
 {% block content %}
     <h1>Your Stores</h1> 
-  {% for store in stores %}
-  	<div class="store-list">
-      <h3><a href="{% url 'store_detail' pk=store.pk %}">{{ store.store_name }}</a></h3>
-    </div>
-  {% endfor %}
-    <a href="{% url 'store_new' %}">Add a store</a>  
+    {% for store in stores %}
+    	<div class="store-list">
+	        <h3><a href="{% url 'store_detail' pk=store.pk %}">{{ store.store_name }}</a></h3>
+     	</div>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+    	<a href="{% url 'store_new' %}">Add a store</a>
+    {% endif %} 
 {% endblock %}
 
 

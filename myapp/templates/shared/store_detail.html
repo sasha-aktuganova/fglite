@@ -8,5 +8,8 @@
 		<li><strong>Address:</strong> {{ store.store_address|linebreaksbr }}</li>
 		<li><strong>Phone:</strong> {{ store.store_phone|linebreaksbr }}</li>
 	</ul>
+	{% if user.is_authenticated %}
+		<a href="{% url 'store_edit' pk=store.pk %}">Edit</a>
+	{% endif %}
 	<a href="{% url 'store_list' %}">Back</a>
 {% endblock %}
