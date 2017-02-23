@@ -10,6 +10,8 @@ def store_list(request):
 	return render(request, 'stores/store_list.html', {'stores': stores})
 
 def store_detail(request, pk):
+    print("HEYYYY")
+    print(request)
     store = get_object_or_404(Store, pk=pk)
     return render(request, 'stores/store_detail.html', {'store': store})
 
@@ -39,18 +41,19 @@ def store_edit(request, pk):
     return render(request, 'stores/store_edit.html', {'form': form})
 
 def menu_new(request, pk):
-    print(request)
     if request.method == "POST":
         form = MenuForm(request.POST, Store)
         if form.is_valid():
             store = get_object_or_404(Store, pk=pk)
             menu = form.save(commit=False)
-            menu.store = store.id
+            menu.store_id = store
             menu.save()
-            return redirect('menu_detail', pk=menu.pk)
+            return redirect('store_detail', pk=store.pk)
     else:
         form = MenuForm()
     return render(request, 'menus/menu_edit.html', {'form': form})
 
-
+def menu_detail(request, pk):
+    menu = get_object_or_404(Menu, pk=pk)
+    return render(request, 'menus/menu_detail.html', {'menu': menu})
 
