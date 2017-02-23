@@ -1,0 +1,13 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+  	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h1><a href="{% url 'store_detail' pk=store.pk %}">{{ store.store_name }}</a></h1>
+      <ul class="store-details">
+      	<li><strong>Type:</strong> {{ store.store_type|linebreaksbr }}</li>
+      	<li><strong>Hours:</strong> {{ store.store_hours|linebreaksbr }}</li>
+      	<li><strong>Address:</strong> {{ store.store_address|linebreaksbr }}</li>
+      	<li><strong>Phone:</strong> {{ store.store_phone|linebreaksbr }}</li>
+      </ul>
+    </div>
+{% endblock %}
