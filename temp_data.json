@@ -1,0 +1,1 @@
+[{"model": "myapp.store", "pk": 1, "fields": {"user_id": 1, "store_name": "Sasha's Cafe", "store_type": "Restaurant", "store_hours": "5pm - 12pm", "store_address": "123 Main St, City ST 12312", "store_phone": "222 567 8987"}}]
